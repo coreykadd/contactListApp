@@ -1,0 +1,23 @@
+{
+  "name": "contactlistapp",
+  "version": "1.0.0",
+  "description": "A nodejs MEAN stack contact list app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coreykadd/contactListApp.git"
+  },
+  "author": "Corey Mangan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coreykadd/contactListApp/issues"
+  },
+  "homepage": "https://github.com/coreykadd/contactListApp#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
