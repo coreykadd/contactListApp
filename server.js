@@ -52,6 +52,20 @@ app.post('/contactList', function(req, res){
     });
 });
 
+app.delete('/contactList/:id', function(req, res){
+    var id = req.params.id;
+    console.log(id);
+
+    contactList.remove({
+        _id: id
+    }, function(err, data){
+        if(err)
+            res.send(err);
+
+        res.json(data);
+    });
+});
+
 app.listen(8080, function(){ 
     console.log('App listening on port 8080');
 });
