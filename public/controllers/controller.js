@@ -23,7 +23,23 @@ myApp.controller('AppCtrl',[
             console.log($scope.contact);
             if($scope.contact._id !== null)
                 $scope.contact._id = null;
-                
+
+            if($scope.contact.name == null) {
+                alert('Please enter valid name');
+                return;
+            }
+            else if($scope.contact.email == null) {
+                alert('Please enter a valid email');
+                return;
+            }
+            else if($scope.contact.number == null) {
+                alert('Plase enter a valid number');
+                return;
+            }
+            else {
+                alert('Contact Added');
+            }
+
             $http.post('/contactList', $scope.contact)
             .then(function(res){
                 console.log('Added contact');
@@ -52,6 +68,22 @@ myApp.controller('AppCtrl',[
 
         $scope.update = function(){
             console.log($scope.contact._id);
+            if($scope.contact.name == null) {
+                alert('Please enter valid name');
+                return;
+            }
+            else if($scope.contact.email == null) {
+                alert('Please enter a valid email');
+                return;
+            }
+            else if($scope.contact.number == null) {
+                alert('Plase enter a valid number');
+                return;
+            }
+            else {
+                alert('Contact Updated');
+            }
+
             $http.put('/contactList/' + $scope.contact._id, $scope.contact)
             .then(function(res){
                 console.log('edited contact');
