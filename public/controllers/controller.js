@@ -13,5 +13,9 @@ myApp.controller('AppCtrl',[
             console.log('Recieved data');
             $scope.contactList = res.data;
         });
+
+        $scope.addContact = function(){
+            console.log($scope.contact);
+        };
     }
 ]);
