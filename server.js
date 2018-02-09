@@ -66,6 +66,43 @@ app.delete('/contactList/:id', function(req, res){
     });
 });
 
+app.get('/contactList/:id', function(req, res){
+    var id = req.params.id;
+    console.log(id);
+
+    contactList.findOne({
+        _id: id
+    }, function(err, data){
+        if(err)
+        res.send(err);
+
+        res.json(data);
+    });
+});
+
+app.put('/contactList/:id', function(req, res){
+    var id = req.params.id;
+    console.log(req.body.name);
+
+    contactList.findOne({
+        _id: id
+    }, function(err, contact){
+        if(err)
+            res.send(err);
+        
+        contact.name = req.body.name;
+        contact.email = req.body.email;
+        contact.number = req.body.number;
+
+        contact.save(function(err){
+            if(err)
+                res.send(err);
+    
+            res.json({message: 'Contact Updated'});
+        });
+    });
+});
+
 app.listen(8080, function(){ 
     console.log('App listening on port 8080');
 });

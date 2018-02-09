@@ -21,6 +21,9 @@ myApp.controller('AppCtrl',[
 
         $scope.addContact = function(){
             console.log($scope.contact);
+            if($scope.contact._id !== null)
+                $scope.contact._id = null;
+                
             $http.post('/contactList', $scope.contact)
             .then(function(res){
                 console.log('Added contact');
@@ -34,6 +37,24 @@ myApp.controller('AppCtrl',[
             $http.delete('/contactList/' + id)
             .then(function(res){
                 console.log('deleted contact');
+                console.log(res);
+                refresh();
+            });
+        };
+
+        $scope.edit = function(id){
+            console.log(id);
+            $http.get('/contactList/' + id)
+            .then(function(res){
+                $scope.contact = res.data;
+            });
+        };
+
+        $scope.update = function(){
+            console.log($scope.contact._id);
+            $http.put('/contactList/' + $scope.contact._id, $scope.contact)
+            .then(function(res){
+                console.log('edited contact');
                 console.log(res);
                 refresh();
             });
