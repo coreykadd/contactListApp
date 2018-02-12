@@ -15,7 +15,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Name <button ng-click="sortNameAsc()">▼</button><button ng-click="sortNameDesc()">▲</button></th>
                         <th>Email</th>
                         <th>Number</th>
                         <th>Action</th>
@@ -30,7 +30,13 @@
                         <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
                         <td><button class="btn btn-info" ng-click="update()">Update</button></td>
                     </tr>
-                    <tr ng-repeat="contact in contactList">
+
+                    <!--<select ng-model="sortOrder">
+                        <option value "+name">name (A-Z)</option>
+                        <option value "-name">name (Z-A)</option>
+                    </select>-->
+
+                    <tr ng-repeat="contact in contactList | orderBy: sortOrder">
                         <td>{{contact.name}}</td>
                         <td>{{contact.email}}</td>
                         <td>{{contact.number}}</td>

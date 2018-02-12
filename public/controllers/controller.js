@@ -91,5 +91,14 @@ myApp.controller('AppCtrl',[
                 refresh();
             });
         };
+
+        //Sorting
+        $scope.sortNameAsc = function(){
+            $scope.sortOrder = '+name';
+        };
+
+        $scope.sortNameDesc = function(){
+            $scope.sortOrder = '-name';
+        };
     }
 ]);
