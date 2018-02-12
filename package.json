@@ -4,7 +4,7 @@
   "description": "A nodejs MEAN stack contact list app",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./tests/contactList.tests.js",
     "start": "node server.js"
   },
   "repository": {
@@ -19,7 +19,10 @@
   "homepage": "https://github.com/coreykadd/contactListApp#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
     "express": "^4.16.2",
-    "mongoose": "^5.0.4"
+    "mocha": "^5.0.0",
+    "mongoose": "^5.0.4",
+    "request": "^2.83.0"
   }
 }
