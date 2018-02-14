@@ -58,6 +58,19 @@ module.exports = function(app){
             res.json(data);
         });
     });
+
+    /*app.get('/contactList', function(req, res){
+        console.log(req.body.name);
+        contactList.find({
+            name: req.body.searchedName
+        }, function(err, data){
+            if(err)
+                res.send(err);
+
+            res.json(data);
+            console.log(data);
+        });
+    });*/
     
     app.put('/contactList/:id', function(req, res){
         var id = req.params.id;

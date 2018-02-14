@@ -92,6 +92,24 @@ myApp.controller('AppCtrl',[
             });
         };
 
+        $scope.searchName = function(){
+            $scope.contactList.forEach(contact => {
+                if(contact.name == $scope.searchedName) {
+                    console.log('Found Name ' + contact.name + ' ' + contact._id);
+                    $http.get('/contactList/' + contact._id)
+                    .then(function(res){
+                        console.log(res.data);
+                        res = [{'name': contact.name, 'email': contact.email, 'number' : contact.number}];
+                        $scope.contactList = res;
+                        $scope.contact = {};
+                    });   
+                };
+                
+                if($scope.searchedName == '')
+                    refresh();
+            });
+        };
+
         //Sorting
         $scope.sortNameAsc = function(){
             $scope.sortOrder = '+name';
