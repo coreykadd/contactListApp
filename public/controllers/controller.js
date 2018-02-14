@@ -8,6 +8,7 @@ myApp.controller('AppCtrl',[
     function($scope, $http){
         console.log('Hello World');
 
+        //Getting all contacts
         var refresh = function() {
             $http.get('/contactList')
             .then(function(res){
@@ -19,6 +20,7 @@ myApp.controller('AppCtrl',[
 
         refresh();
 
+        //Adding a contact
         $scope.addContact = function(){
             console.log($scope.contact);
             if($scope.contact._id !== null)
@@ -48,6 +50,7 @@ myApp.controller('AppCtrl',[
             });
         };
 
+        //Removing a contact
         $scope.remove = function(id){
             console.log(id);
             $http.delete('/contactList/' + id)
@@ -58,6 +61,7 @@ myApp.controller('AppCtrl',[
             });
         };
 
+        //Editing a contact
         $scope.edit = function(id){
             console.log(id);
             $http.get('/contactList/' + id)
@@ -66,6 +70,7 @@ myApp.controller('AppCtrl',[
             });
         };
 
+        //Updating a contact
         $scope.update = function(){
             console.log($scope.contact._id);
             if($scope.contact.name == null) {
@@ -92,6 +97,7 @@ myApp.controller('AppCtrl',[
             });
         };
 
+        //Searching for a contact
         $scope.searchName = function(){
             $scope.contactList.forEach(contact => {
                 if(contact.name == $scope.searchedName) {

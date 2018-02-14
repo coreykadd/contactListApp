@@ -11,9 +11,10 @@
 
     <body ng-controller="AppCtrl">
         <div class="container">
-            <h1 style="padding-top: 10px">Contact List App</h1> <input ng-model="searchedName"></input> <button ng-click="searchName()">Search</button>
+            <h1 style="padding-top: 10px">Contact List App</h1> <input ng-model="searchedName" ng-submit="searchName()"></input> <button ng-click="searchName()">Search</button>
             <table class="table">
                 <thead>
+                    <!--Headings-->
                     <tr>
                         <th>Name <button ng-click="sortNameAsc()">▼</button><button ng-click="sortNameDesc()">▲</button></th>
                         <th>Email</th>
@@ -23,6 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!--Inputs for contact-->
                     <tr>
                         <td><input class="form-control" ng-model="contact.name"></td>
                         <td><input class="form-control" ng-model="contact.email" type="email"></td>
@@ -36,6 +38,7 @@
                         <option value "-name">name (Z-A)</option>
                     </select>-->
 
+                    <!--Contact List-->
                     <tr ng-repeat="contact in contactList | orderBy: sortOrder">
                         <td>{{contact.name}}</td>
                         <td>{{contact.email}}</td>
